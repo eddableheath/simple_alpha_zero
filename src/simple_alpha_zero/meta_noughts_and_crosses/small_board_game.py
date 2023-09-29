@@ -17,10 +17,20 @@ class SmallBoard:
     def __init__(self) -> None:
         self.state = np.full(9, " ", dtype=str)
         self.player_states = ["X", "O"]
+        self.decided = False
+        self.won_by = None
 
     def get_state(self):
         """Get the current state of the board"""
         return self.state
+
+    def get_decided(self):
+        """Get whether the game has been won or not"""
+        return self.decided
+
+    def get_won_by(self):
+        """Get which player won the game"""
+        return self.won_by
 
     def which_positions_available(self):
         """Get the available positions to play"""
@@ -42,8 +52,12 @@ class SmallBoard:
         )
         for win_con in win_cons:
             if np.all(self.state[win_con] == "X"):
+                self.decided = True
+                self.won_by = 0
                 return 0
             elif np.all(self.state[win_con] == "O"):
+                self.decided = True
+                self.won_by = 1
                 return 1
 
         return None
@@ -55,12 +69,9 @@ class SmallBoard:
             position: position to update
             player: which player is making a move, int=[0,1]
         """
-        if self.state[position] != " ":
-            print("Position already taken! Try again!")
-            return
-
         self.state[position] = self.player_states[player]
 
-        player_win = self.check_if_won()
-        if player_win is not None:
-            self.state = np.full(9, self.player_states[player_win])
+        # Check if there is a winner
+        self.check_if_won()
+        if self.decided:
+            self.state = np.full(9, self.player_states[self.won_by])

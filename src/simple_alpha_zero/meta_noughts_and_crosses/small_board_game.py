@@ -20,23 +20,23 @@ class SmallBoard:
         self.decided = False
         self.won_by = None
 
-    def get_state(self):
+    def get_state(self) -> np.ndarray:
         """Get the current state of the board"""
         return self.state
 
-    def get_decided(self):
+    def get_decided(self) -> bool:
         """Get whether the game has been won or not"""
         return self.decided
 
-    def get_won_by(self):
+    def get_won_by(self) -> int:
         """Get which player won the game"""
         return self.won_by
 
-    def which_positions_available(self):
+    def which_positions_available(self) -> np.ndarray:
         """Get the available positions to play"""
         return np.where(self.state == " ")
 
-    def check_if_won(self):
+    def check_if_won(self) -> int or None:
         """Check if a player has won, return which player has won."""
         win_cons = np.array(
             [

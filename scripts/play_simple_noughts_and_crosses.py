@@ -6,7 +6,7 @@ from simple_alpha_zero.meta_noughts_and_crosses.printers import small_board_prin
 from simple_alpha_zero.meta_noughts_and_crosses.small_board_game import SmallBoard
 
 
-def check_if_space_available(position, board_state):
+def check_if_space_available(position, board_state) -> bool:
     """Check that the position of the space is available"""
     if board_state[position] != " ":
         return False

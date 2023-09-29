@@ -1,4 +1,4 @@
-# simple_alpha_zero
+# Simple Alpha Zero for Meta Noughts and Crosses
 A simple implementation of alpha zero with an application to the game of meta noughts and crosses.
 
 ## Current Project Plan

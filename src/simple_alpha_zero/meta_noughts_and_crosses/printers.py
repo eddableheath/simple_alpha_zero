@@ -61,7 +61,7 @@ def small_board_print(state):
     print(st)
 
 
-def big_game_print_(states: np.ndarray):
+def big_game_printer(states: np.ndarray):
     """Print a big game made of small games, on an input of their states
 
     states: (9, 9)

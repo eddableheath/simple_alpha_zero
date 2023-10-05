@@ -72,13 +72,13 @@ def big_game_printer(states: np.ndarray):
     horiz_line = np.full(5, "-", dtype=str)
 
     print_array[0:5, 0:5] = small_boards[0]
-    print_array[6:11, 0:5] = small_boards[1]
-    print_array[12:, 0:5] = small_boards[2]
-    print_array[0:5, 6:11] = small_boards[3]
+    print_array[0:5, 6:11] = small_boards[1]
+    print_array[0:5, 12:] = small_boards[2]
+    print_array[6:11, 0:5] = small_boards[3]
     print_array[6:11, 6:11] = small_boards[4]
-    print_array[12:, 6:11] = small_boards[5]
-    print_array[0:5, 12:] = small_boards[6]
-    print_array[6:11, 12:] = small_boards[7]
+    print_array[6:11, 12:] = small_boards[5]
+    print_array[12:, 0:5] = small_boards[6]
+    print_array[12:, 6:11] = small_boards[7]
     print_array[12:, 12:] = small_boards[8]
 
     print_array[5, 0:5] = horiz_line
